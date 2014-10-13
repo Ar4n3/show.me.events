@@ -1,0 +1,69 @@
+/**************
+	FONTS
+***************/
+@font-face {
+font-family: 'icomoon';
+src:url('../icomoon/fonts/icomoon.eot?smpnu9');
+src:url('../icomoon/fonts/icomoon.eot?#iefixsmpnu9') format('embedded-opentype'),
+url('../icomoon/fonts/icomoon.woff?smpnu9') format('woff'),
+url('../icomoon/fonts/icomoon.ttf?smpnu9') format('truetype'),
+url('../icomoon/fonts/icomoon.svg?smpnu9#icomoon') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+[class^="showEvents"], [class*=" showEvents"] {
+font-family: 'icomoon';
+speak: none;
+font-style: normal;
+font-weight: normal;
+font-variant: normal;
+text-transform: none;
+line-height: 1;
+
+/* Better Font Rendering =========== */
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+.showEventsPrev a:before, .showEventsNext a:before {content: '\e600'; color: #2CE8AB; font-size: 20px;}
+.showEventsNext a:before {content: '\e601';}
+.showEventsclose:before {font-size: 20px;content: '\e603'; color: #2CE8AB;}
+.showEventsmark:before {font-size: 14px;content: '\e602'; color: #319BFF;}
+
+/**************
+	MAIN CSS
+***************/
+* {margin: 0; padding: 0;}
+body {font-family: 'Open Sans Condensed', sans-serif; background-color: #319BFF;}
+.wrapper {width: 600px; height: auto; margin: 15em auto;}
+.calendario {position: absolute; width: 600px; height: 491px; background-color: #f0f0f0;}
+.row {width: 100%; height: 15%;}
+.month {position: relative; width: 564px; height: 100px; text-align: right; list-style-type: none; border-bottom: 1px solid #2CE8AB; border-left: 36px solid #2CE8AB;}
+.month li {display: inline-block; width: 600px; height: 100px;}
+.month li a {text-decoration: none; color: white;  border-radius: 5px; text-align: center; width: 30px; height: 25px; display: block;}
+.showDate {width: 20%; position: absolute; display: block; right: 10%; text-align: center; padding-top: 1em; color: #ccc;}
+.biggerFont {font-size: 1.5em; color: #2CE8AB;}
+.days {color: #2CE8AB; width: 512px; height: 30px; padding: 10px 0; padding-left: 32px; font-weight: bold; border-left: 36px solid #E84B30;}
+.days ul {width: 504px; height: 100%; }
+.days ul li {width: 14.2%; display: inline-block; text-align: center; color: #E84B30; font-size: .8em;}
+.numdays { width: 507px; height: 340px; padding-left: 27px; padding-right: 30px; color: #2CE8AB; font-weight: bold; border-left: 36px solid #2CE8AB;}
+.row div {float:left; width: 13.89%; height: 98%; margin: .2%;}
+.calendarDay {background-color: white; font-size: 1.5em; line-height: 2em; text-align: center;}
+.tooltip {position: absolute; top: 0; left: 0; background-color: #2CE8AB; color: white; width: 0%; height: 80px; padding: 10px; text-align: left;}
+.boxyShow {z-index: 1000;width: 0%; height: 491px; background-color: white; position: absolute; top:0; opacity: 0.9}
+.boxyShow h1 {display: block; height: 98px; width: 100%; border-bottom: 2px solid #2CE8AB; color: #2CE8AB; text-indent: 20px; line-height: 3em;}
+.boxyShow .address {display: block; height: 48px; width: 580px; border-bottom: 2px solid #E84B30; color: #E84B30; padding-right: 20px; line-height: 3em; text-align: right;}
+.boxyShow .text {display: block; height: 300px; width: 560px; color: #2CE8AB; padding: 20px; line-height: 1.5em; text-align: justify;}
+div:before {clear: both;}
+
+/************************
+	NAVIGATION ELEMENTS
+*************************/
+.showEventsPrev, .showEventsNext {position: absolute; top:50%; right: 30%;}
+.showEventsNext {right: 5%;}
+.showEventsmark {text-decoration: none; position: relative; bottom: 32px; margin: 1px;}
+.showEventsclose {display: inline-block; text-decoration: none; position: absolute; text-align: center; top: -10px; right: -10px; background-color: white; border-radius: 15%; width: 0%; height: 0%}
+
+/************************
+	NAVIGATION ELEMENTS
+*************************/

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+	<script src="js/show.me.events.js"></script>
+	<title>Calendario en jQuery</title>
+	<link rel="stylesheet" href="css/test.css">
+</head>
+<body>
+	<div class="wrapper">
+		<div class="calendario"></div>	
+	</div>
+	<script>
+	date = new Date();
+	todayRepeat = date.getDate()+"-"+(date.getMonth()+1);
+	today = date.getDate()+"-"+(date.getMonth()+1)+"-"+date.getFullYear();
+	$(".calendario").showEvents({
+		events: [
+			[todayRepeat, 'This event...', 'In this plugin', 'Will be displayed every year. Just set the date of the event as \'08-10\', without the year.'],
+			[today, 'Options', 'In this plugin', 'You can tell the plugin to display the calendar in a specific month or year. These options have to be numeric. And you can show it in Spanish or English with the showLang option. The default language is set to English.'], 
+			[today, 'Events in a day', 'In this plugin', 'The number of events in a day, for this default design, are four.'], 
+			[today, 'Events in a day', 'In this plugin', 'See? But you can change this easily on the css file.'], 
+		]
+	});
+	</script>
+</body>
+</html>

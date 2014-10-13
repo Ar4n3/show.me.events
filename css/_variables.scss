@@ -1,0 +1,18 @@
+$primary_color: #2CE8AB;
+$darker_primary_color: darken($primary_color, 20%);
+$second_color: #E84B30;
+$my_blue: #319BFF;
+$background_color: #f0f0f0;
+$primary_width: 600px;
+$border_pixels: 36px;
+$second_width: $primary_width - $border_pixels;
+$days_padding: 10px;
+$month_bottom_border: 1px;
+$primary_height: 490px;
+$month_height: 99px;
+$days_height: 30px;
+$numdays_height: $primary_height - $month_height - $days_height - ($days_padding * 2) - $month_bottom_border;
+
+$primary-width: 600px;
+$primary-context: 12;
+$primary-gutter: 20;

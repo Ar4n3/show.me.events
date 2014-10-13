@@ -1,0 +1,229 @@
+@import "reset";
+
+// //Definings
+// @import "variables";
+// @import "mixins";
+
+// //Globals
+// @import "globals";
+
+// //Page Specific
+
+$primary-width: 600px;
+$primary-context: 12;
+$primary-gutter: 20;
+$my_blue: #319BFF;
+$background_color: #f0f0f0;
+$primary_color: #2CE8AB;
+$darker_primary_color: darken($primary_color, 20%);
+
+
+$add-border: (
+  position: all,
+  size: 1px,
+  color: $primary_color,
+  pattern: solid
+) !default;
+
+$displayList: (
+	display: block,
+	text-decoration: none,
+	border-radius: 5px,
+	text-align: center
+) !default;
+
+@function grid-width ($count, $gutter, $width) {
+	@return ($count - 1) * $gutter + ($count * $width);
+}
+
+@function content-width ($context, $width, $gutter) {
+	@return $context * ($width + $gutter);
+}
+
+@mixin grid ($count, $width: $primary-width, $context: $primary-context, $gutter: $primary-gutter) {
+	$grid-width: grid-width($count, $gutter, $width);
+	$context-width: content-width($context, $width, $gutter);
+	width: percentage($grid-width / $context-width);
+}
+
+@mixin container ($position: null, $bgcolor: null, $width: auto, $height: auto) {
+	position: $position;
+	background-color: $bgcolor;
+	height: $height;
+	@if $width == auto or $width > 12 {
+		width: $width;
+	} @else {
+		@include grid($width);
+	}
+}
+
+@mixin add-border($position: map-get($add-border, position), $size: map-get($add-border, size), $pattern: map-get($add-border, pattern), $color: map-get($add-border, color)) {
+  @if $position == all {
+    border: $size $pattern $color;
+  } @else {
+    border-#{$position}: $size $pattern $color;
+  }
+}
+
+@mixin navigation($color, $font, $content) {
+	color: $color; 
+	font-size: $font;
+	content: $content;
+}
+
+@mixin prevnext($which) {
+	$content:'';
+	@if $which == "showEventsPrev" {
+		$content: '\e600';
+	}
+	@if $which == "showEventsNext" {
+		$content: '\e601';
+	}	
+	top: 45%;
+	a:before {@include navigation($primary_color, 20px, $content);}
+}
+
+@mixin display ($display: map-get($displayList, display), $text-decoration: map-get($displayList, text-decoration), $border-radius: map-get($displayList, border-radius), $text-align: map-get($displayList, text-align), $color: null, $font-size: null, $line-height: null) {
+	display: $display;
+	text-decoration: $text-decoration;
+	border-radius: $border-radius;
+	text-align: $text-align;
+	color: $color;
+	font-size: $font-size;
+	line-height: $line-height;
+}
+
+@mixin measure ($top: null, $float: null, $left: null, $padding-top: null, $padding: null, $margin: null) {
+	top: $top;
+	float: $float;
+	left: $left;
+	padding-top: $padding-top;
+	padding: $padding;
+}
+
+// @mixin rgbacolor ($attr) {
+// 	$quantity: random(100);
+// 	#{$attr}: desaturate(rgb(random(255), random(255), random(255)), $quantity);
+// }
+
+/************************
+	FONTS
+*************************/
+@font-face {
+font-family: 'icomoon';
+src:url('../icomoon/fonts/icomoon.eot?smpnu9');
+src:url('../icomoon/fonts/icomoon.eot?#iefixsmpnu9') format('embedded-opentype'),
+url('../icomoon/fonts/icomoon.woff?smpnu9') format('woff'),
+url('../icomoon/fonts/icomoon.ttf?smpnu9') format('truetype'),
+url('../icomoon/fonts/icomoon.svg?smpnu9#icomoon') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+[class^="showEvents"], [class*=" showEvents"] {
+font-family: 'icomoon';
+speak: none;
+font-style: normal;
+font-weight: normal;
+font-variant: normal;
+text-transform: none;
+line-height: 1;
+
+/* Better Font Rendering =========== */
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+	font-family: 'Open Sans Condensed', sans-serif; 
+	background-color: $my_blue;
+}
+
+// .deco {
+// 	position: relative;
+// 	width: 5%;
+// 	float: left;
+// 	z-index: 0;
+// 	top: -15em;
+// 	border-bottom-left-radius: 40px;
+// 	border-bottom-right-radius: 40px;
+// }
+
+// @for $i from 1 through 20 {
+// 	.deco {
+// 		&:nth-child(#{$i}) {
+// 			$height: random(400);
+// 			@while $height < 150 {
+// 				$height: random(400);
+// 			}
+// 			height: $height + px;
+// 			@include rgbacolor(background-color);
+// 		}
+// 	}
+// }
+
+div:before, div:after {
+	clear: both;
+}
+
+.wrapper {
+	@include container (relative, $width: $primary_width);
+	@media screen and (max-width: 650px) {
+		width: 300px;
+	}
+	margin: 15em auto;
+	.calendario {
+		@include container (absolute, $background_color, $width: 12);
+		.month {
+			@include container ($position: relative, $height: 99px);
+			@include add-border ($position: left, $size: 36px);
+			@include add-border ($position: bottom);
+			li {
+				@include container ($width: 100%, $height: 100%);
+				@include display (inline-block, null, null, null);
+				a {
+					@include container ($width: 30px, $height: 25px);
+					@include display;
+				}
+				span {
+					@include container (relative);
+					@include measure ($float: left, $left: 70%);
+					&.showDate {
+						@include container ($width: 18%);
+						@include display (block, null, null, $color: #ccc);
+						@include measure ($top: 0, $padding-top: 1em);
+						.biggerFont {
+							@include container ($position: relative, $width: 100%);
+							@include display (null, null, null, $color: $primary_color, $font-size: 1.5em, $line-height: 1.3em);
+							@include measure ($left: 0);
+						}
+					}
+					&.tooltip {
+						@include container (absolute, $darker_primary_color, 0, 80px);
+						@include measure ($top: 0, $left: 0, $padding: 10px);
+						@include display (null, null, null, $color: darken(white, 10%), $text-align: left);
+					}
+					&.showEventsPrev { 
+						@include prevnext(showEventsPrev); 
+					}
+					&.showEventsNext { 
+						@include prevnext(showEventsNext); 
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
