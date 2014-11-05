@@ -6,9 +6,10 @@ Icon
 ._*
 .Spotlight-V100
 .Trashes
-show.me.events.sublime-project
-show.me.events.sublime-workspace
+*.sublime-project
+*.sublime-workspace
 test.css
+*.scss
 css/_globals.scss
 css/_mixins.scss
 css/_reset.scss
