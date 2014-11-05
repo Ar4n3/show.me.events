@@ -1,7 +1,14 @@
 .sass-cache
-/show.me.events.sublime-project
-/show.me.events.sublime-workspace
-/test.css
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+show.me.events.sublime-project
+show.me.events.sublime-workspace
+test.css
 css/_globals.scss
 css/_mixins.scss
 css/_reset.scss
