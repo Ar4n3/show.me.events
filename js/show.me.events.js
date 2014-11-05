@@ -150,7 +150,7 @@
 					if ($.fn.showEvents.defaults.showLang == "EN") {
 						var smallMessage = "Click the star for more info";
 					}
-					$(".month li").append("<span class='tooltip' style='display:none;'><p style='display:none'>"+$(this).children('span').text()+"<br/><small>"+smallMessage+"</small></p></span>");
+					$(".month li").append("<span class='tooltip'><p style='display:none'>"+$(this).children('span').text()+"<br/><small>"+smallMessage+"</small></p></span>");
 					$(".tooltip").delay(100).animate({
 						width: '56%'
 					}, function(){
@@ -188,8 +188,8 @@
 							width: '100%'
 						}, function(){
 							$(".showEventsclose").animate({
-								width: '3.5%',
-								height: '4.3%'
+								width: '4%',
+								height: '4%'
 							});
 							$(".boxyShow").children().fadeIn(100);
 						});
