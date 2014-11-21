@@ -209,13 +209,12 @@ div:before, div:after {
     .wrapper .calendario .days {
     	color: #2CE8AB; 
     	height: 30px; 
-    	padding: 10px 0; 
-    	padding-left: 32px; 
+    	padding: 10px 20px 10px 20px; 
     	font-weight: bold; 
     	border-left: 36px solid #E84B30; }
     	@media screen and (max-width: 650px) {
 			.wrapper .calendario .days {
-				padding-left: 3px; 
+				padding: 10px 3px 10px 3px; 
 			}
     	}
     	.wrapper .calendario .days ul {
